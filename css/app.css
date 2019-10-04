@@ -1,0 +1,267 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif, monospace, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+.noty {
+    position: fixed;
+    top: 5%;
+    right: 10px;
+    z-index: 99999;
+    font-size: inherit;
+}
+
+p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+#message-section {
+    position: relative;
+    top: 0%;
+    width: 100%;
+    height: calc(100vh - (100vh * 0.4));
+    background-color: #f1f3f1;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 10px;
+    font-weight: normal;
+    /* font-size: 0.7rem; */
+    /* letter-spacing: 0.1rem; */
+    word-spacing: normal;
+}
+
+.inbox-heading {
+    position: sticky;
+    top: 0%;
+    right: 0;
+    left: 0;
+    background-color: cadetblue;
+    z-index: 1;
+}
+
+.mb-50 {
+    margin-bottom: 200px;
+}
+
+
+.inbox {
+    height: calc(100vh - (0.3*100vh));
+    background-color: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem;
+    position: relative;
+    top: 0%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.group-inbox {
+    height: calc(100vh - (0.3*100vh));
+    background-color: transparent;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem;
+    position: relative;
+    top: 0%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+
+.inbox .inbox-message,
+.ginbox .inbox-message {
+    padding: 15px 15px 0.4px 15px;
+    border-radius: 40px;
+    /* background-color: rgb(70, 70, 219); */
+    /* color: #fff; */
+    /* height: auto; */
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+
+
+.inbox-message.user {
+    background-color: rgb(54, 20, 207);
+    color: #fff;
+}
+
+.inbox-message.receiver {
+    background-color: #f1f3f1;
+    color: black;
+}
+
+p.user {
+    padding-right: 10px;
+}
+
+p.receiver {
+    margin-left: 20px;
+}
+
+img.user {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    margin-left: 4px;
+}
+
+img.receiver {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+img.icon {
+    height: 30px;
+}
+
+.media-icon {
+    height: 60px;
+    width: 64px;
+    object-fit: contain;
+}
+
+.text-cyan {
+    color: cyan;
+    font-weight: 400;
+}
+
+.text-pink {
+    color: rgb(212, 8, 151);
+    font-weight: 900;
+}
+
+span.edit {
+    display: none;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    background-color: transparent;
+}
+
+.inbox-message:hover>.edit,
+.inbox-message:focus>.edit {
+    display: inline;
+}
+
+.inbox-image-block {
+    width: 100%;
+
+}
+
+.inbox-image {
+    display: inline;
+    max-height: 300px;
+    max-width: 80%;
+    margin: 0 auto;
+    object-fit: contain;
+    padding: 9px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 100%;
+    border: 1px rgb(209, 12, 45) solid;
+    display: inline-block;
+
+}
+
+ul.services {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+ul.services>li {
+    font-size: 0.6rem;
+}
+
+.row.home {
+    width: 500px;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
+@media only screen and (max-width:500px) {
+    .row.home {
+        width: 100%;
+    }
+}
+
+.fa-sign-in {
+    font-size: .8rem;
+}
+
+.icon-nav {
+    background-color: rgb(41, 41, 167);
+    /* height: 1rem; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
+
+.notification {
+    position: relative;
+    margin: 0 10px;
+}
+
+.notification>ul {
+    position: absolute;
+    z-index: 999999;
+    top: 20px;
+    left: 0;
+    display: none;
+    /* right: 0; */
+    /* margin: 0 auto; */
+}
+
+.notification-circle {
+    position: absolute;
+    top: -40%;
+    left: -80%;
+}
+
+.rounded {
+    border-radius: 2rem !important;
+}
+
+div#search-users {
+    display: none;
+}
+
+.circle {
+    border-radius: 100%
+}
+
+.unread-count {
+    background-color: red;
+    color: #fff;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+}

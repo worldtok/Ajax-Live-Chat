@@ -1,0 +1,14 @@
+{
+    "name": "worldtok/php-live-messaging",
+    "description": "This project is a complete set of live messaging system using php and jquery with native javascript. It is easy to understand and one can easily download and include it on his or her ongoing project or even into a finished project. For any question message the developer at info@worldtok.com",
+    "type": "project",
+    "license": "MIT",
+    "authors": [{
+        "name": "Worldtok",
+        "email": "info@worldtok.com"
+    }],
+    "minimum-stability": "stable",
+    "require": {
+        "hybridauth/hybridauth": "~3.0"
+    }
+}

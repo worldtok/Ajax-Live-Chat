@@ -1,0 +1,88 @@
+RewriteEngine on
+RewriteBase /
+ErrorDocument 500 "Houston, we have a problem."
+ErrorDocument 404 /404
+# option + FollowSystemSymlinks
+DirectoryIndex index.php
+
+# <IfModule mod_expires.c>
+#     ExpiresActive on
+#     ExpiresDefault                                      "access plus 0 seconds"
+
+#   # CSS
+#     ExpiresByType text/css                              "access plus 0 seconds"
+
+#   # Data interchange
+#     ExpiresByType application/json                      "access plus 0 seconds"
+#     ExpiresByType application/xml                       "access plus 0 seconds"
+#     ExpiresByType text/xml                              "access plus 0 seconds"
+
+#   # Favicon (cannot be renamed!)
+#     ExpiresByType image/x-icon                          "access plus 0 seconds"
+
+#   # HTML components (HTCs)
+#     ExpiresByType text/x-component                      "access plus 0 seconds"
+
+#   # HTML
+#     ExpiresByType text/html                             "access plus 0 seconds"
+
+#   # JavaScript
+#     ExpiresByType application/javascript                "access plus 0 seconds"
+
+#   # Manifest files
+#     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+#     ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+#   # Media
+#     ExpiresByType audio/ogg                             "access plus 1 month"
+#     ExpiresByType image/gif                             "access plus 1 month"
+#     ExpiresByType image/jpeg                            "access plus 1 month"
+#     ExpiresByType image/png                             "access plus 1 month"
+#     ExpiresByType video/mp4                             "access plus 1 month"
+#     ExpiresByType video/ogg                             "access plus 1 month"
+#     ExpiresByType video/webm                            "access plus 1 month"
+
+#   # Web feeds
+#     ExpiresByType application/atom+xml                  "access plus 1 hour"
+#     ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+#   # Web fonts
+#     ExpiresByType application/font-woff2                "access plus 1 month"
+#     ExpiresByType application/font-woff                 "access plus 1 month"
+#     ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+#     ExpiresByType application/x-font-ttf                "access plus 1 month"
+#     ExpiresByType font/opentype                         "access plus 1 month"
+#     ExpiresByType image/svg+xml                         "access plus 1 month"
+# </IfModule>
+# AllowEncodedSlashes on
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^group/([-\w]*)$ /group/single.php?group=$1 [END]
+
+RewriteCond %{QUERY_STRING} ^group=([-\w]*)$ [NC]
+RewriteRule ^group/single\.php$ /group/%1 [R,QSD,END]
+# RewriteRule ^group/single\.php?group=([\w\-]*)$ /$1 [R]
+# RewriteRule ^vvv/$1 /group/single.php?group=$1 [END]
+
+RewriteCond %{THE_REQUEST} index [NC]
+RewriteRule (.*)$ / [R,END]
+RewriteCond %{THE_REQUEST} !^POST [NC]
+# RewriteRule
+# RewriteRule ^groups.php$ /groups [R,END]
+RewriteCond %{QUERY_STRING} ^$ [NC]
+RewriteRule ^(.*)\.php$ $1 [R,END]
+# RewriteRule ^(.*)\.php([^?]*)$ $1.eze [R,END]
+# RewriteRule .* - [S=1]
+# RewriteRule ^groups$ /groups.php [END]
+# RewriteRule ^(.*).eze$ $1.php [END]
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteRule ^(.*) / [END]
+RewriteRule ^([^.\W]*)$ /$1.php [END]
+RewriteRule ^chats$ /chats.php
+RewriteRule ^style([/]?)$ /css/ [R]
+# RewriteRule .* - [E=INFO_SERVSR_NAME:%{SEREVR_NAME},NE]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ([.-/\w]+)([\W.]+)$
+RewriteRule ^(.*) %1 [R=301,END]
